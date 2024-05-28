@@ -1,9 +1,9 @@
 // import { lightbox } from '../main';
 
 function imageTemplate(image) {
-  return ` <li>
+  return ` <li class="list-item">
             <a href="${image.largeImageURL}" class="gallery-item">
-              <img src="${image.webformatURL}" alt="${image.tags}" />
+              <img src="${image.webformatURL}" alt="${image.tags}" class="gallery-img" />
             </a>
             <div class="info">
               <p>Likes: ${image.likes}</p>
