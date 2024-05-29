@@ -26,10 +26,7 @@ formElem.addEventListener('submit', e => {
     return;
   }
 
-  pageLoader.style.display = 'block';
-
   searchImage(query).then(data => {
-    pageLoader.style.display = 'none';
     const markup = imagesTemplate(data.hits);
     imagesList.innerHTML = markup;
     lightbox.refresh();
