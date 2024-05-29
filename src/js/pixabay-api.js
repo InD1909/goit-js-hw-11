@@ -16,7 +16,6 @@ export function searchImage(query) {
   return fetch(url)
     .then(res => res.json())
     .catch(function (error) {
-      loader.style.display = 'none';
       iziToast.error({
         title: 'Error',
         message: 'Something went wrong. Please try again later.',

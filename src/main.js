@@ -1,5 +1,6 @@
 export const formElem = document.querySelector('#search-form');
-export const imagesList = document.querySelector('#loading');
+export const imagesList = document.querySelector('#list');
+export const pageLoader = document.querySelector('.loader');
 
 import './js/pixabay-api';
 import './js/render-functions';
@@ -10,7 +11,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-import { imageTemplate, imagesTemplate } from './js/render-functions';
+import { imagesTemplate } from './js/render-functions';
 import { searchImage } from './js/pixabay-api';
 
 formElem.addEventListener('submit', e => {
@@ -25,10 +26,14 @@ formElem.addEventListener('submit', e => {
     return;
   }
 
+  pageLoader.style.display = 'block';
+
   searchImage(query).then(data => {
+    pageLoader.style.display = 'none';
     const markup = imagesTemplate(data.hits);
     imagesList.innerHTML = markup;
-    if (markup.length === 0) {
+    lightbox.refresh();
+    if (data.hits.length === 0) {
       iziToast.info({
         title: 'No results',
         message:
@@ -37,4 +42,9 @@ formElem.addEventListener('submit', e => {
       return;
     }
   });
+});
+
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
 });
