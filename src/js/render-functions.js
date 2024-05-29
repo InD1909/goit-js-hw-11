@@ -1,6 +1,4 @@
-// import { lightbox } from '../main';
-
-function imageTemplate(image) {
+export function imageTemplate(image) {
   return ` <li class="list-item">
             <a href="${image.largeImageURL}" class="gallery-item">
               <img src="${image.webformatURL}" alt="${image.tags}" class="gallery-img" />
@@ -14,10 +12,6 @@ function imageTemplate(image) {
           </li>`;
 }
 
-function imagesTemplate(arr) {
+export function imagesTemplate(arr) {
   return arr.map(imageTemplate).join('');
 }
-
-export { imageTemplate, imagesTemplate };
-
-import { imagesList } from '../main';
