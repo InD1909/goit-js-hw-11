@@ -1,6 +1,6 @@
 export const formElem = document.querySelector('#search-form');
 export const imagesList = document.querySelector('#list');
-export const pageLoader = document.querySelector('.loader');
+// export const pageLoader = document.querySelector('.loader');
 
 import './js/pixabay-api';
 import './js/render-functions';
