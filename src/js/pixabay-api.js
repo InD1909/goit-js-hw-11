@@ -13,12 +13,5 @@ export function searchImage(query) {
 
   const url = `${BASE_URL}?${params}`;
 
-  return fetch(url)
-    .then(res => res.json())
-    .catch(function (error) {
-      iziToast.error({
-        title: 'Error',
-        message: 'Something went wrong. Please try again later.',
-      });
-    });
+  return fetch(url).then(res => res.json());
 }
